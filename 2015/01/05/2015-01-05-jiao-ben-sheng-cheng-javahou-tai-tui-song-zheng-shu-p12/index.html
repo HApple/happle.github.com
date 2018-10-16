@@ -13,6 +13,8 @@
     
 
     
+        <meta name="description" content="###最近几个项目都要做推送功能，每次都要用openssl转一下实在是乏味，我就在github搜寻有没有相关的脚本可以一步到位，果然有，在这里apns-cert-converter （script to convert and combine .cer certificate and .p12 in"/>
+    
 
     <!--Author-->
     
@@ -21,10 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="happle"/>
+        <meta property="og:title" content="脚本生成Java后台推送证书p12"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="###最近几个项目都要做推送功能，每次都要用openssl转一下实在是乏味，我就在github搜寻有没有相关的脚本可以一步到位，果然有，在这里apns-cert-converter （script to convert and combine .cer certificate and .p12 in"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>Archives - happle</title>
+    <title>脚本生成Java后台推送证书p12 - happle</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -137,101 +141,80 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>脚本生成Java后台推送证书p12</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2015-01-05
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/项目实战/">项目实战</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2015/01/05/2015-01-05-jiao-ben-sheng-cheng-javahou-tai-tui-song-zheng-shu-p12/">
-        <h1 class="post-title archive">
-            脚本生成Java后台推送证书p12
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2015-01-05
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2014/12/14/2014-12-14-xcodeduo-targetbi-ji/">
-        <h1 class="post-title archive">
-            Xcode多Target笔记
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2014-12-14
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>###最近几个项目都要做推送功能，每次都要用openssl转一下实在是乏味，我就在github搜寻有没有相关的脚本可以一步到位，果然有，在这里<a href="https://github.com/dyashkir/apns-cert-converter" target="_blank" rel="noopener">apns-cert-converter</a> （script to convert and combine .cer certificate and .p12 into .p12 for apns push）,高兴坏了，下载下来是一个create_cer.sh文件，怎么用呢，瞎执行半天没成功，打开.sh文件看源码，查了Shell特殊变量的含义才搞明白怎么用</p>
+<p><img src="http://7sbprq.com1.z0.glb.clouddn.com/octopressimage11.png" alt="Mou icon"></p>
+<p>####下图是Shell特殊变量详细解释<br><img src="http://7sbprq.com1.z0.glb.clouddn.com/octopressimage12.png" alt="Mou icon"></p>
+<p>####下面演示下这个脚本如何使用<br><img src="http://7sbprq.com1.z0.glb.clouddn.com/octopressimage13.png" alt="Mou icon"></p>
+<p>####成功了，会多出一个apn_cert_key.p12 ，这个就是Java后台需要的推送证书p12</p>
+<p>####可以测试下证书到底能不能用<br>假如是测试环境用这个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert apn_cert.pem -key apn_pkey_noenc.pem</span><br></pre></td></tr></table></figure>
+<p>假如是生产环境用这个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl s_client -connect gateway.push.apple.com:2195 -cert apn_cert.pem -key apn_pkey_noenc.pem</span><br></pre></td></tr></table></figure>
+<p>####最后推荐一个测试推送消息的工具 <a href="https://github.com/stefanhafeneger/PushMeBaby" target="_blank" rel="noopener">PushMeBaby</a> ,实实在在的推到手机上注意这个工具里面的证书用的是原始的.cer文件，不能测这个脚本转换后的p12的可用性。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2014/05/20/2014-05-20-convertArabicNumbersToChinese/">
-        <h1 class="post-title archive">
-            将阿拉伯数字转成中文数字显示（Objective-C)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2014-05-20
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2014/05/14/2014-05-14-nothing/">
-        <h1 class="post-title archive">
-            Nothing
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2014-05-14
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2014/05/10/2014-05-10-hello/">
-        <h1 class="post-title archive">
-            hello
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2014-05-10
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
